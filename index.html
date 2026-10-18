@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Projecte 01 · Ho creo mentre aprenc · Pilot 0.3 · Edició per compartir</title>
+<style>
+    :root{--navy:#17253b;--blue:#3565bd;--mint:#dcefe8;--border:#dce3ee;--muted:#5d6a7b;--bg:#f6f8fc}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--navy);line-height:1.6}
+    .wrap{width:min(840px,calc(100% - 32px));margin:0 auto}.hero{background:var(--navy);color:#fff;padding:45px 0 38px}
+    .eyebrow{letter-spacing:.13em;text-transform:uppercase;color:#aad3ed;font-size:12px;font-weight:750;margin:0 0 15px}
+    h1{font-size:clamp(32px,6vw,48px);letter-spacing:-.045em;line-height:1.1;margin:0 0 15px}
+    .subtitle{font-size:18px;color:#d5e4fa;max-width:700px;margin:0}.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:25px}
+    .chip{border:1px solid #60708a;padding:5px 11px;border-radius:99px;font-size:13px;color:#e5efff}
+    main{padding:32px 0 72px}.notice{background:#eaf4ed;border-left:4px solid #2f8b69;padding:14px 18px;border-radius:10px;margin-bottom:26px}
+    .step{background:white;border:1px solid var(--border);border-radius:18px;padding:25px;margin:20px 0;box-shadow:0 4px 15px #192b450b}
+    h2{font-size:23px;line-height:1.25;margin:0 0 12px;letter-spacing:-.025em}.stephead{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+    .num{width:37px;height:37px;border-radius:11px;background:#e5ecfb;color:#2852a5;display:grid;place-items:center;font-weight:800;flex:none}
+    .stephead h2{margin:0}.prompt{background:#f4f7fc;border:1px solid #d3dced;border-radius:12px;padding:17px;white-space:pre-wrap;font:14px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1e2c45;margin:14px 0;max-height:390px;overflow:auto}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--blue);border:0;color:white;text-decoration:none;padding:11px 17px;border-radius:10px;cursor:pointer;font-weight:700;font-size:14px}
+    .btn:hover{background:#214d9d}.btn.secondary{background:#edf2fb;color:#23447c}.btn.secondary:hover{background:#dfe9fb}.hint{color:var(--muted);font-size:14px}
+    label.check{display:flex;gap:10px;align-items:flex-start;margin:10px 0;cursor:pointer}input[type=checkbox]{margin-top:5px;accent-color:#2f8b69;width:17px;height:17px;flex:none}
+    .result{display:flex;gap:15px;align-items:center;background:#f1f6ff;border-radius:12px;padding:16px;margin-top:18px}.result strong{display:block}
+    .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.panel{border:1px solid var(--border);padding:16px;border-radius:12px;background:#fff}
+    .smallcaps{font-size:12px;font-weight:750;letter-spacing:.08em;text-transform:uppercase;color:#365aa0}.foot{color:#526174;font-size:14px;border-top:1px solid #d8e0eb;padding:22px 0}
+    @media(max-width:560px){.two{grid-template-columns:1fr}.step{padding:18px}.hero{padding:34px 0}.result{align-items:flex-start;flex-direction:column}}
+    @media print{.hero{background:white;color:black;padding:14px 0}.subtitle,.eyebrow{color:black}.chip{color:black;border-color:#ccc}.step{box-shadow:none;break-inside:avoid}.btn{display:none}body{background:white}}
+  
+    .mode{border:1px solid #afc6e9;background:#eef5ff;padding:15px 18px;border-radius:12px;margin:20px 0}
+    .mode strong{color:#204b91}.micro{font-size:13px;color:#4f6077;margin:7px 0 0}
+    .minitag{font-size:12px;font-weight:750;border-radius:8px;background:#e8eef9;color:#2852a5;padding:3px 8px;white-space:normal}
+    .subtle{background:#f6f8fc;border:1px solid #e2e8f1;border-radius:10px;padding:11px 15px;margin:12px 0}
+    .field{display:flex;flex-direction:column;gap:6px;margin:12px 0}.field label{font-size:14px;font-weight:700}
+    .field input,.field select,.field textarea{width:100%;padding:12px;font:inherit;border-radius:9px;border:1px solid #cdd7e5;background:#fff;color:var(--navy)}
+    .field textarea{min-height:86px;resize:vertical}.feedback{font-size:14px;line-height:1.6;background:#f5f8fd;padding:13px 16px;border:1px solid var(--border);border-radius:10px;white-space:pre-wrap}
+    .status{font-size:13px;color:#376951;margin:7px 0 0}.roadmap{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    @media(max-width:650px){.roadmap{grid-template-columns:1fr}}
+</style>
+<style>
+.welcome{background:radial-gradient(circle at 90% 12%,#385c9c 0%,transparent 32%),linear-gradient(145deg,#101d35 0%,#1b3356 65%,#10243b 100%);color:white;padding:58px 20px 68px;min-height:94vh;display:flex;align-items:center}.welcome-inner{width:min(780px,100%);margin:auto}.welcome-top{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}.welcome-kicker{font-size:12px;font-weight:800;letter-spacing:.15em;color:#a9c8f4}.pilot-pill{font-size:11px;letter-spacing:.09em;font-weight:800;color:#10243b;background:#b6f0d5;border-radius:99px;padding:7px 13px}.welcome-overline{margin:46px 0 10px;color:#c6d8f4;font-size:17px}.welcome h1{font-size:clamp(48px,9vw,84px);line-height:1.02;margin:0 0 22px;letter-spacing:-.06em}.welcome h1 em{font-style:normal;color:#9ce5cc}.welcome-lead{font-size:clamp(19px,3vw,24px);font-weight:550;line-height:1.45;max-width:700px;color:#f4f8ff;margin-bottom:26px}.welcome-story{border-top:1px solid #ffffff35;padding-top:18px;max-width:710px}.welcome-story p{font-size:16px;line-height:1.65;color:#e1eafa;margin:0 0 13px}.welcome-story strong{color:white}.welcome-story .signature{font-size:23px;font-style:italic;color:#b8f0d7;margin:16px 0 24px}.welcome-start{display:inline-flex;align-items:center;justify-content:center;gap:25px;background:#b6f0d5;color:#12243b;text-decoration:none;padding:15px 23px;border-radius:12px;font-weight:800;box-shadow:0 12px 32px #0003}.welcome-start:hover{background:#d0f9e7}.welcome-small{font-size:12px;color:#c3d4ec;margin-top:14px}@media(max-width:520px){.welcome{padding:35px 20px 48px;min-height:auto}.welcome-overline{margin-top:35px}.welcome-story p{font-size:15px}}
+</style></head>
+<body><section class="welcome" id="benvinguda"><div class="welcome-inner"><div class="welcome-top"><span class="welcome-kicker">XAVI AI LAB · UNA INVITACIÓ PERSONAL</span><span class="pilot-pill">PROVA PILOT</span></div><p class="welcome-overline">Hola! Soc en Xavi.</p><h1>Ho creo<br/><em>mentre aprenc.</em></h1><p class="welcome-lead">T'he convidat a provar una idea que m'il·lusiona. I m'agradaria que m'ajudessis a fer-la créixer.</p><div class="welcome-story"><p>Fa un temps que experimento amb la IA per crear petites aplicacions que resolen problemes reals de la meva feina. No soc programador, però he descobert que, amb bones instruccions, puc construir eines que abans ni m'hauria plantejat fer.</p><p>He començat aquest projecte <strong>per aprendre i compartir el que vaig descobrint</strong>, no per guanyar diners. Si algun dia té recorregut i es pot monetitzar, ja ho veurem. Ara em motiva continuar creant i ajudar altres professionals a fer el mateix.</p><p><strong>Aquest primer exercici és expressament senzill:</strong> vull que vegis com de ràpid pots aconseguir un resultat. Després vindran aplicacions molt més útils per al teu negoci, seguint el mateix mètode: primer construir, després entendre i finalment adaptar.</p><p>Les instruccions estan preparades amb tècniques d'enginyeria de prompts que he anat aprenent i comprovant. Tu no necessites estudiar-les: només posar-les en pràctica.</p><p><strong>Gràcies per ser dels primers a provar-ho!</strong></p><p class="signature">Xavi</p></div><a class="welcome-start" href="#comencem">Comencem la primera pràctica <span aria-hidden="true">→</span></a><p class="welcome-small">Sense coneixements previs · Primera aplicació</p></div></section>
+<header class="hero" id="comencem"><div class="wrap">
+<p class="eyebrow">Ho creo mentre aprenc · Pilot 0.3 · Edició per compartir</p>
+<h1>La teva primera aplicació, sense programar</h1>
+<p class="subtitle">Crea una eina que funciona. Comprova-la. Entén què has fet. Millora-la. Sense teoria abans del resultat.</p>
+<div class="meta"><span class="chip">Nivell 1 · Resultat primer</span><span class="chip">ChatGPT + navegador</span><span class="chip">Sense GitHub ni Work de moment</span></div>
+</div></header>
+<main class="wrap">
+<div class="notice"><strong>Repte:</strong> acabar amb una aplicació pròpia per apuntar tasques, marcar-les com a fetes i conservar-les en aquest navegador. No cal llegir cap teoria abans de començar.</div><aside class="mode"><strong>Modalitat recomanada ara: GPT-6 · Instant (xat normal).</strong><p class="micro">Per fer una app d'un sol fitxer, no cal Work. Si falla dues vegades o no resol un error, prova GPT-6 Medium si el teu pla el permet; en comptes d'això, a Free/Go fes servir Think. La creació d'apps més elaborades amb GitHub arribarà al Nivell 2, amb Work.</p></aside>
+<section class="step"><div class="stephead"><span class="num">1</span><h2>Crea-la amb ChatGPT</h2></div>
+<p>Obre ChatGPT, inicia un xat nou amb GPT-6 · Instant i copia aquest encàrrec. El prompt ja incorpora objectiu, restriccions, format de lliurament i proves: no cal estudiar com es redacta.</p>
+<div class="prompt" id="prompt1">Crea'm una petita aplicació web de tasques. Soc un professional sense coneixements de programació i vull fer-la servir avui.
+
+RESULTAT: un fitxer tasques.html que pugui obrir amb doble clic a Windows, sense instal·lar res.
+
+FUNCIONS IMPRESCINDIBLES:
+1. Afegir una tasca amb text.
+2. Marcar-la com a feta o pendent.
+3. Eliminar-la.
+4. Conservar les tasques en recarregar o tornar a obrir l'arxiu amb el mateix navegador, quan el navegador ho permeti.
+
+CONDICIONS: un sol HTML amb CSS i JavaScript a dins; aspecte clar i adaptat al mòbil; funciona sense servidor ni serveis externs; sense registre ni dades de clients. Desa les tasques amb localStorage i controla els errors d'accés a aquest emmagatzematge.
+
+LLIURAMENT: dona'm directament el fitxer tasques.html descarregable. Si no pots, entrega el codi complet en un sol bloc i tres passos concrets per desar-lo amb el Bloc de notes de Windows com a fitxer .html (no .txt).
+
+COMPROVACIONS: abans d'acabar, revisa que afegir, completar, eliminar i guardar estan implementats. Avisa'm breument que la persistència dels fitxers locals depèn del navegador. No publiquis res ni em demanis contrasenyes.
+
+RESPOSTA: primer el resultat i com obrir-lo; la teoria, després. No facis preguntes si pots avançar amb aquestes dades.</div>
+<button class="btn" data-copy="prompt1">Copia les instruccions</button>
+<p class="hint">Si ChatGPT et dona un fitxer, obre’l amb doble clic. Si et dona codi, desa’l exactament com explica. No cal Work per a aquest primer exercici.</p>
+</section>
+<section class="step"><div class="stephead"><span class="num">2</span><h2>Prova el resultat</h2></div>
+<p>Sense modificar cap línia de codi, comprova aquestes quatre coses:</p>
+<label class="check"><input type="checkbox"/>Puc escriure i afegir una tasca.</label>
+<label class="check"><input type="checkbox"/>Puc marcar la tasca com a feta.</label>
+<label class="check"><input type="checkbox"/>Puc tancar i reobrir el mateix fitxer amb el mateix navegador i la tasca hi continua.</label>
+<label class="check"><input type="checkbox"/>Puc eliminar una tasca.</label>
+<div class="result"><div><strong>Vols veure com hauria de funcionar?</strong><span class="hint">Obre el nostre exemple per comparar el funcionament. La teva app pot tenir un disseny diferent.</span></div><a class="btn secondary" href="exemple_tasques.html" rel="noopener" target="_blank">Obre l'exemple</a></div>
+<p class="hint">Si falla alguna prova, segueix el prompt de correcció que tens a continuació. El guardat amb localStorage en un fitxer local (file://) pot variar segons el navegador; no hi posis dades importants.</p>
+<div class="subtle"><strong>Si t'encalles, resol-ho sense investigar per internet.</strong><p class="micro">Model: GPT-6 Medium (si està disponible) o Think. Envia això al mateix xat, indicant el resultat de la prova.</p><div class="prompt" id="prompt_error">He seguit les instruccions, però no supera aquesta prova: [ESCRIU QUINA PROVA FALLA]. El que veig és: [DESCRIU-HO EN UNA FRASE]. Identifica primer la causa més probable sense inventar informació. Si és un problema del fitxer HTML, dona'm una versió completa corregida del fitxer, mantenint les funcions que ja funcionen. Si és una limitació de localStorage en fitxers locals, explica-m'ho en dues frases i proposa la comprovació més senzilla. No introdueixis eines noves si no són imprescindibles.</div><button class="btn secondary" data-copy="prompt_error">Copia el prompt de correcció</button></div></section>
+<section class="step"><div class="stephead"><span class="num">3</span><h2>Ara entén què has construït</h2></div>
+<p>Quan ja funcioni, torna al mateix xat. Model: GPT-6 · Instant. Ara toca entendre-ho, sense convertir-ho en una classe de programació.</p>
+<div class="prompt" id="prompt2">Ara que ja tinc l'app funcionant, explica'm en català senzill i amb un exemple de la mateixa app: què fan HTML, CSS i JavaScript; on es guarden les tasques; què passa si canvio de navegador o dispositiu; i per què aquest prototip encara no és adequat per gestionar dades reals de clients. Màxim 7 frases, sense tecnicismes ni teoria innecessària.</div>
+<button class="btn secondary" data-copy="prompt2">Copia l'explicació</button>
+</section>
+<section class="step"><div class="stephead"><span class="num">4</span><h2>Fes-la una mica teva</h2></div>
+<p>Una sola millora, sense començar de zero. Model: GPT-6 Medium si el teu pla el permet (o Think); si Instant resol bé el canvi, també serveix.</p>
+<div class="prompt" id="prompt3">Vull millorar la meva app sense refer-la: afegeix al formulari un selector de prioritat (alta, mitjana, baixa) i mostra la prioritat a cada tasca.
+
+Conserva el disseny, afegir/completar/eliminar i el guardat actual. Mantén la mateixa clau de localStorage; accepta també tasques antigues sense prioritat (considera-les mitjanes). No esborris ni reinicialitzis dades existents.
+
+Entrega'm el fitxer HTML complet actualitzat. Abans de donar-lo per bo, comprova amb una llista curta: puc afegir, completar, eliminar, recarregar i veure tasques antigues. Explica'm com fer una còpia del fitxer anterior abans de substituir-lo. Si per canviar el nom o la ubicació del fitxer puc perdre accés a les dades desades, avisa'm.</div>
+<button class="btn secondary" data-copy="prompt3">Copia la millora</button>
+<p class="hint">Has fet el pas important: no només has rebut una eina, sinó que has començat a donar instruccions per adaptar-la.</p>
+</section>
+<section class="step"><div class="stephead"><span class="num">→</span><h2>El següent nivell, sense aturar-nos</h2></div>
+<p>Aquest primer exercici és només per agafar confiança: els projectes següents utilitzaran el mateix mètode per crear eines més elaborades i adaptades a problemes reals. No és un curs llarg que has d'acabar abans de crear coses útils. El camí serà:</p>
+<div class="roadmap">
+<div class="panel"><span class="smallcaps">Nivell 1 · Ara</span><p><strong>Una app en un fitxer</strong><br/>GPT-6 Instant. Resultat i proves ràpides.</p></div>
+<div class="panel"><span class="smallcaps">Nivell 2 · Després</span><p><strong>Versions i millores</strong><br/>GPT-6 Medium/Think per preparar; Work per treballar amb GitHub i fitxers.</p></div>
+<div class="panel"><span class="smallcaps">Nivell 3 · Més endavant</span><p><strong>Eines d'empresa</strong><br/>GPT-6 High per definir; Work per construir. Privacitat i dades amb més rigor.</p></div>
+</div><p class="micro">La modalitat pot variar segons el pla. Work és útil quan hi ha feina real sobre múltiples fitxers o serveis, però no és obligatori per al primer exemple.</p></section>
+</main>
+<footer class="wrap foot">Xavi AI Lab · «Ho creo mentre aprenc» · Pilot 0.3 · Edició per compartir · Octubre 2026 · Material de prova</footer>
+<script>
+    document.querySelectorAll('[data-copy]').forEach(button=>button.addEventListener('click',async()=>{
+      const txt=document.getElementById(button.dataset.copy).innerText;
+      const prior=button.textContent;
+      try{await navigator.clipboard.writeText(txt)}catch{
+        const a=document.createElement('textarea');a.value=txt;a.style.position='fixed';a.style.opacity='0';document.body.append(a);a.select();document.execCommand('copy');a.remove();
+      }
+      button.textContent='Copiat!';setTimeout(()=>{button.textContent=prior},1600);
+    }));
+</script>
+</body>
+</html>
